@@ -6,7 +6,15 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+aapp.use(cors({
+  origin: [
+    "http://localhost:5174",
+    "https://todo-list-psi-flax.vercel.app"
+  ],
+  methods: ["GET", "POST", "DELETE"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
 // MongoDB connection
